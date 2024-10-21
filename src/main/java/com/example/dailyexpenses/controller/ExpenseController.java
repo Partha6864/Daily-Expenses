@@ -26,8 +26,10 @@ public class ExpenseController {
         try {
             Expense createdExpense = expenseService.addExpense(expense);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdExpense);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to add expense: " + e.getMessage());
         }
     }

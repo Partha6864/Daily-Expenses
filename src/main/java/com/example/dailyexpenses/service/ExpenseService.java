@@ -12,4 +12,5 @@ public interface ExpenseService {
     Expense updateExpense(Long expenseId, Expense updatedExpense);
     ByteArrayOutputStream generateUserBalanceSheet(Long userId) throws Exception;
     ByteArrayOutputStream generateAllUsersBalanceSheet() throws Exception;
+    void splitExpense(Expense expense);
 }
