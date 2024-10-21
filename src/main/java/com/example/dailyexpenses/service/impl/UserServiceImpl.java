@@ -3,12 +3,10 @@ package com.example.dailyexpenses.service.impl;
 import com.example.dailyexpenses.model.User;
 import com.example.dailyexpenses.repository.UserRepository;
 import com.example.dailyexpenses.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,15 +31,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(Long id, User user) {
-        Optional<User> existingUser = userRepository.findById(id);
-        if (existingUser.isPresent()) {
-            User userToUpdate = existingUser.get();
-            userToUpdate.setName(user.getName());
-            userToUpdate.setEmail(user.getEmail());
-            userToUpdate.setMobileNumber(user.getMobileNumber());
-            return userRepository.save(userToUpdate);
-        }
-        return null;
+        user.setId(id); // Ensure the ID is set for update operation
+        return userRepository.save(user);
     }
 
     @Override
