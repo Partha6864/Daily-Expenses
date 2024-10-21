@@ -14,13 +14,13 @@
 - Download balance sheets for all users as PDFs
 
 ## Technologies Used
-- Java 21
-- Spring Boot 3.3.4
-- Spring Data JPA
-- H2 Database
-- PDF Generation with Apache PDFBox
+- ***Java 21***
+- ***Spring Boot 3.3.4***
+- ***Spring Data JPA***
+- ***H2 Database***
+- ***PDF Generation with Apache PDFBox***
 
-## Installation
+## Getting Started
 
 1. **Clone the repository:**
    ```bash
